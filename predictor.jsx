@@ -1,4 +1,3 @@
-// Importe o axios no seu arquivo. Se não tiver, instale com: npm install axios
 import axios from 'axios';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
