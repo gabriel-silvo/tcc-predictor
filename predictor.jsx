@@ -1,7 +1,7 @@
 // Importe o axios no seu arquivo. Se não tiver, instale com: npm install axios
 import axios from 'axios';
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native'; // Exemplo para React Native
+import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
 
 function Predictor() {
   const [smiles, setSmiles] = useState('CCO'); // Exemplo: SMILES para a molécula de Etanol
@@ -19,9 +19,9 @@ function Predictor() {
     setPrediction(null);
     setError('');
 
-    const apiUrl = 'https://gnn-api-production.up.railway.app/predict'; // A URL que o Talisson te passou
+    const apiUrl = 'https://gnn-api-production.up.railway.app/predict'; // A URL do endpoint
     const requestBody = {
-      smiles: smiles, // O corpo da requisição, como ele especificou
+      smiles: smiles, // SMILES
     };
 
     try {
@@ -30,12 +30,12 @@ function Predictor() {
       
       const response = await axios.post(apiUrl, requestBody, {
         headers: {
-          'Content-Type': 'application/json', // Informando que estamos enviando dados em formato JSON
+          'Content-Type': 'application/json', // Envio via .JSON
         },
       });
 
       console.log('Resposta recebida:', response.data);
-      setPrediction(response.data); // Armazena a resposta no estado
+      setPrediction(response.data);
 
     } catch (err) {
       console.error('Erro ao fazer a requisição:', err);
@@ -63,7 +63,6 @@ function Predictor() {
       {prediction && (
         <View style={{ marginTop: 20 }}>
           <Text style={{ fontWeight: 'bold' }}>Resultado da Predição (Vetor):</Text>
-          {/* O ideal é formatar essa saída, mas por enquanto vamos mostrar o JSON cru */}
           <Text>{JSON.stringify(prediction, null, 2)}</Text>
         </View>
       )}
