@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Type, PenTool, ArrowLeft, ChevronDown } from 'lucide-react';
 import SketcherStep from './SketcherStep';
+import ModelDisclaimer from './ModelDisclaimer';
 
 const AMBER = '#FFBF00';
 const BG_DEEP = '#111111';
@@ -229,10 +230,11 @@ export default function ConfigStep({ moleculeData, setMoleculeData, onNext }) {
             <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: 9, letterSpacing: '0.25em', color: AMBER, textTransform: 'uppercase', marginBottom: 20, textAlign: 'center' }}>
               Selecione o método de análise
             </p>
-            <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', gap: 16 }}>
+            <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', gap: 16, marginBottom: 16 }}>
               <MethodCard title="Entrada via Texto" subtitle="Formato SMILES" desc="Insira diretamente a sequência SMILES da molécula para análise instantânea." icon={Type} onClick={() => setView('text')} mobile={mobile} />
               <MethodCard title="Laboratório de Desenho" subtitle="Sketcher Molecular" desc="Esboce a estrutura química no editor integrado e converta para SMILES automaticamente." icon={PenTool} onClick={() => setView('draw')} mobile={mobile} />
             </div>
+            <ModelDisclaimer mobile={mobile} />
           </motion.div>
         )}
 

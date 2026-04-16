@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, FlaskConical, Loader, AlertCircle } from 'lucide-react';
+import ModelDisclaimer from './ModelDisclaimer';
 
 const AMBER  = '#FFBF00';
 const BG_IN  = '#1a1a1a';
