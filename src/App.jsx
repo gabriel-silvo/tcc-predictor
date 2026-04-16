@@ -72,7 +72,7 @@ export default function App() {
       </nav>
 
       {/* Main content */}
-      <main style={{ flex: 1, width: '100%', maxWidth: 900, padding: mobile ? '0 16px 40px' : '0 32px 64px', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <main style={{ flex: 1, width: '100%', maxWidth: 900, padding: mobile ? '20px 16px 40px' : '0 32px 64px', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: mobile ? 'flex-start' : 'center' }}>
 
         {/* Title — only on step 1 */}
         <AnimatePresence>

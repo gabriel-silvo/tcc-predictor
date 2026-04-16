@@ -173,10 +173,16 @@ function MethodCard({ title, subtitle, desc, icon: Icon, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        flex: '1 1 0', minWidth: 0, background: BG_INNER,
+        flex: mobile ? 'none' : '1 1 0',
+        width: '100%',
+        background: BG_INNER,
         border: hovered ? `1px solid ${AMBER}` : BORDER,
-        borderRadius: 12, padding: '22px 24px', cursor: 'pointer',
-        textAlign: 'left', position: 'relative', overflow: 'hidden',
+        borderRadius: 12,
+        padding: mobile ? '18px 20px' : '22px 24px',
+        cursor: 'pointer',
+        textAlign: 'left',
+        position: 'relative',
+        overflow: 'hidden',
         transition: 'border-color 0.2s',
       }}
     >
@@ -189,7 +195,19 @@ function MethodCard({ title, subtitle, desc, icon: Icon, onClick }) {
           <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: 9, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: 3 }}>{subtitle}</div>
         </div>
       </div>
-      <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.65, margin: 0 }}>{desc}</p>
+      <p style={{
+        fontFamily: 'Manrope, sans-serif',
+        fontSize: mobile ? 11 : 12,
+        color: 'rgba(255,255,255,0.4)',
+        lineHeight: 1.6,
+        margin: 0,
+        display: '-webkit-box',
+        WebkitLineClamp: mobile ? 2 : 'none',
+        WebkitBoxOrient: 'vertical',
+        overflow: 'hidden'
+      }}>
+        {desc}
+      </p>
     </button>
   );
 }
