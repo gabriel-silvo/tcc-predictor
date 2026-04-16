@@ -165,7 +165,7 @@ function ModelDropdown({ value, onChange }) {
 }
 
 // ── Method Option Card ──────────────────────────────────────────────────────
-function MethodCard({ title, subtitle, desc, icon: Icon, onClick }) {
+function MethodCard({ title, subtitle, desc, icon: Icon, onClick, mobile }) {
   const [hovered, setHovered] = useState(false);
   return (
     <button
@@ -230,8 +230,8 @@ export default function ConfigStep({ moleculeData, setMoleculeData, onNext }) {
               Selecione o método de análise
             </p>
             <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', gap: 16 }}>
-              <MethodCard title="Entrada via Texto" subtitle="Formato SMILES" desc="Insira diretamente a sequência SMILES da molécula para análise instantânea." icon={Type} onClick={() => setView('text')} />
-              <MethodCard title="Laboratório de Desenho" subtitle="Sketcher Molecular" desc="Esboce a estrutura química no editor integrado e converta para SMILES automaticamente." icon={PenTool} onClick={() => setView('draw')} />
+              <MethodCard title="Entrada via Texto" subtitle="Formato SMILES" desc="Insira diretamente a sequência SMILES da molécula para análise instantânea." icon={Type} onClick={() => setView('text')} mobile={mobile} />
+              <MethodCard title="Laboratório de Desenho" subtitle="Sketcher Molecular" desc="Esboce a estrutura química no editor integrado e converta para SMILES automaticamente." icon={PenTool} onClick={() => setView('draw')} mobile={mobile} />
             </div>
           </motion.div>
         )}
