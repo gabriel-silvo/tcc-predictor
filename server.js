@@ -29,7 +29,7 @@ app.use('/api-qsar', createProxyMiddleware({
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Fallback para o index.html (suporte a roteamento SPA se adicionado no futuro)
-app.get('*', (req, res) => {
+app.get('/*splat', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
